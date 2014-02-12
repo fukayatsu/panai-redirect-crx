@@ -18,6 +18,7 @@
         if (matches) {
           for (var i = 0; i < matches.length; i++) {
             redirectTo = redirectTo.split(matches[i]).join(subUrls[i+1]);
+            redirectTo = decodeURIComponent(redirectTo)
           }
         }
         return chrome.tabs.update(tagId, {url: redirectTo});
